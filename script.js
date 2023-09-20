@@ -5,7 +5,7 @@ let marke = "circle";
 let gameOver = false;
 
 function chickenDinner(marke){
-  console.log(marke)
+  // console.log(marke)
 //  horizantal
 for(let i=0; i<20; i++){
   let count=0
@@ -31,12 +31,13 @@ const container = () => {
             count++;
 
             cellElement.addEventListener("click", function (e) {
+              
                 if (!gameOver && !borderses[x][y] && !e.target.querySelector(".circle") && !e.target.querySelector(".cross")) {
                     const displayMark = document.createElement("div");
                     displayMark.classList.add(marke);
                     e.target.appendChild(displayMark);
                     borderses[x][y] = marke;
-                    console.log(borderses)
+                    // console.log(borderses)
                     if(chickenDinner(marke)){
                       infoTic.textContent = `Le joueur ${marke} a gagné !`;
                       gameOver=true;
