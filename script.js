@@ -22,7 +22,7 @@ for(let i=0; i<20; i++){
 for(let i=0; i<20; i++){
   let count=0;
   for(let j=0;j<20;j++){
-    if(borderses[j][i]){
+    if(borderses[j][i]===marke){
       count++
       if(count===5)return true;
     }else{
@@ -30,7 +30,20 @@ for(let i=0; i<20; i++){
     }
   }
 }
-
+// diagonal-gouchDroit
+for(let i =0; i<20; i++){
+  let count=1;
+  for(let j=0; j<20 ;j++){
+    for(let k=0; k<5; k++){
+      if(i+k<20 && j+k<20 && borderses[i+k][j+k]===marke){
+            count++;
+            if(count==5)return true
+      }else{
+        count=0;
+      }
+    }
+  }
+}
 }
 const container = () => {
     let count = 1;
