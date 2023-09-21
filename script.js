@@ -44,6 +44,21 @@ for(let i =0; i<20; i++){
     }
   }
 }
+// diagonal-droitGouche
+for(let i=0; i<20 ;i++){
+ count=1;
+ for(let j=0; j<20; j++){
+    for(let k=0;k<20;k++){
+      if( i+k<20 && j-k>=0 && borderses[i+k][j-k]===marke){
+        count++
+        if(count===5)return true;
+      }else{
+        count=0;
+      }
+    }
+   }
+}
+return false
 }
 const container = () => {
     let count = 1;
