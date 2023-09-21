@@ -18,6 +18,18 @@ for(let i=0; i<20; i++){
     }
   }
 }
+//virticale
+for(let i=0; i<20; i++){
+  let count=0;
+  for(let j=0;j<20;j++){
+    if(borderses[j][i]){
+      count++
+      if(count===5)return true;
+    }else{
+      count=0
+    }
+  }
+}
 
 }
 const container = () => {
