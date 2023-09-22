@@ -65,18 +65,49 @@ body{
   justify-content: center;
 
 }
-main{
-  height: 10vh;
+header{
+  height: 6vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.top{
-  height: 7vh;
+main{
+  height: 11vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  flex-direction: column;
 }
 #rest{
-
+    height: 60%;
+    width: 5%;
+    padding: auto;
+}
+.scores{
+  display: flex;
+  justify-content: center;
+}
+.o{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.equal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.x{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-direction: column;
 }
