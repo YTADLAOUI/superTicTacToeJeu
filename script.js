@@ -1,63 +1,69 @@
 const containerTic = document.querySelector("#gameTic");
 const infoTic = document.querySelector("#infoTic");
+const rest= document.querySelector("#rest");
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
 let marke = "circle";
 let gameOver = false;
+// arr=[];
 
 function chickenDinner(marke){
-  // console.log(marke)
 //  horizantal
-for(let i=0; i<20; i++){
-  let count=0
-  for(let j=0;j<20;j++){
-    if(borderses[i][j]===marke){
-      count++
-      if(count===5)return true;
-    }else{
-      count=0;
-    }
-  }
-}
+      for(let i=0; i<20; i++){
+        let count=0
+        for(let j=0;j<20;j++){
+          if(borderses[i][j]===marke){
+            // arr.push([i,j]);
+            count++
+            // console.log(arr)
+            if(count===5)return true;
+          }else{
+            count=0;
+          }
+        }
+        
+      }
 //virticale
-for(let i=0; i<20; i++){
-  let count=0;
-  for(let j=0;j<20;j++){
-    if(borderses[j][i]===marke){
-      count++
-      if(count===5)return true;
-    }else{
-      count=0
-    }
-  }
-}
+      for(let i=0; i<20; i++){
+        let count=0;
+        for(let j=0;j<20;j++){
+          if(borderses[j][i]===marke){
+
+            count++
+            if(count===5)return true;
+          }else{
+            count=0
+          }
+        }
+      }
 // diagonal-gouchDroit
-for(let i =0; i<20; i++){
-  let count=1;
-  for(let j=0; j<20 ;j++){
-    for(let k=0; k<5; k++){
-      if(i+k<20 && j+k<20 && borderses[i+k][j+k]===marke){
-            count++;
-            if(count==5)return true
-      }else{
-        count=0;
+      for(let i =0; i<20; i++){
+        let count=1;
+        for(let j=0; j<20 ;j++){
+          for(let k=0; k<5; k++){
+            if(i+k<20 && j+k<20 && borderses[i+k][j+k]===marke){
+                  count++;
+                  if(count==5)return true
+            }else{
+              count=0;
+            }
+          }
+        }
       }
-    }
-  }
-}
 // diagonal-droitGouche
-for(let i=0; i<20 ;i++){
- count=1;
- for(let j=0; j<20; j++){
-    for(let k=0;k<20;k++){
-      if( i+k<20 && j-k>=0 && borderses[i+k][j-k]===marke){
-        count++
-        if(count===5)return true;
-      }else{
-        count=0;
+      for(let i=0; i<20 ;i++){
+      count=1;
+      for(let j=0; j<20; j++){
+          for(let k=0;k<20;k++){
+            if( i+k<20 && j-k>=0 && borderses[i+k][j-k]===marke){
+              count++
+
+              if(count===5)return true;
+            }else{
+              count=0;
+            }
+          }
+        }
       }
-    }
-   }
-}
 return false
 }
 const container = () => {
@@ -68,18 +74,17 @@ const container = () => {
             cellElement.classList.add("square");
             cellElement.id = count;
             containerTic.appendChild(cellElement);
-            count++;
-
+             count++;
             cellElement.addEventListener("click", function (e) {
-              
                 if (!gameOver && !borderses[x][y] && !e.target.querySelector(".circle") && !e.target.querySelector(".cross")) {
                     const displayMark = document.createElement("div");
                     displayMark.classList.add(marke);
                     e.target.appendChild(displayMark);
-                    borderses[x][y] = marke;
-                    // console.log(borderses)
+                    borderses[x][y] = marke
+
                     if(chickenDinner(marke)){
                       infoTic.textContent = `Le joueur ${marke} a gagné !`;
+
                       gameOver=true;
                     }else{ 
                       marke = marke === "circle" ? "cross" : "circle";
@@ -90,5 +95,6 @@ const container = () => {
         });
     });
 };
-
+rest.addEventListener("click",()=>{location.reload()});
 container();
+// console.log(borderses)
