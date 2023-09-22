@@ -2,14 +2,14 @@ const containerTic = document.querySelector("#gameTic");
 const infoTic = document.querySelector("#infoTic");
 const rest= document.querySelector("#rest");
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
+console.log(borderses)
 let marke = "circle";
 let gameOver = false;
 // arr=[];
-
 function chickenDinner(marke){
 //  horizantal
       for(let i=0; i<20; i++){
-        let count=0
+        let count=0;
         for(let j=0;j<20;j++){
           if(borderses[i][j]===marke){
             // arr.push([i,j]);
@@ -22,6 +22,7 @@ function chickenDinner(marke){
         }
         
       }
+     
 //virticale
       for(let i=0; i<20; i++){
         let count=0;
@@ -44,7 +45,7 @@ function chickenDinner(marke){
                   count++;
                   if(count==5)return true
             }else{
-              count=0;
+            count=0
             }
           }
         }
@@ -95,6 +96,20 @@ const container = () => {
         });
     });
 };
-rest.addEventListener("click",()=>{location.reload()});
+rest.addEventListener("click",()=>{
+  let cellCircle =document.querySelectorAll(".circle");
+  let cellCroiss=document.querySelectorAll(".cross");
+  cellCircle.forEach(el=>el.classList.remove('circle'));
+  cellCroiss.forEach(el=>el.classList.remove('cross'));
+  borderses.forEach((borders,x)=>{
+    borders.forEach(
+      (border,y)=>{
+        borderses[x][y]=null;
+      }
+      )
+    })
+    gameOver = false;
+    marke = "circle";
+});
 container();
 // console.log(borderses)

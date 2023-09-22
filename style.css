@@ -94,7 +94,7 @@ main{
   align-items: center;
   color: white;
   flex-direction: column;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .equal{
   display: flex;
@@ -102,7 +102,7 @@ main{
   align-items: center;
   color: white;
   flex-direction: column;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .x{
   display: flex;
