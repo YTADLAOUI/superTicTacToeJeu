@@ -4,6 +4,9 @@ const rest = document.querySelector("#rest");
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
 console.log(borderses)
 let marke = "circle";
+let equal = 0;
+let circle = 0;
+let cross = 0;
 let gameOver = false;
 // arr=[];
 function chickenDinner(marke) {
@@ -73,20 +76,26 @@ const container = () => {
         borders.forEach((border, y) => {
             const cellElement = document.createElement("div");
             cellElement.classList.add("square");
-            cellElement.id = count;
+            // cellElement.id = count;
             containerTic.appendChild(cellElement);
-            count++;
+            // count++;
             cellElement.addEventListener("click", function(e) {
                 if (!gameOver && !borderses[x][y] && !e.target.querySelector(".circle") && !e.target.querySelector(".cross")) {
                     const displayMark = document.createElement("div");
                     displayMark.classList.add(marke);
                     e.target.appendChild(displayMark);
                     borderses[x][y] = marke
-
+                    equal++
                     if (chickenDinner(marke)) {
                         infoTic.textContent = `Le joueur ${marke} a gagné !`;
-
+                        if (marke == "circle") {
+                            circle++
+                        } else {
+                            cross++
+                        }
                         gameOver = true;
+                    } else if (equal == 400) {
+                        infoTic.textContent = `égalité`;
                     } else {
                         marke = marke === "circle" ? "cross" : "circle";
                         infoTic.textContent = `C'est maintenant au tour de ${marke}`;
