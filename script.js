@@ -1,6 +1,9 @@
 const containerTic = document.querySelector("#gameTic");
 const infoTic = document.querySelector("#infoTic");
 const rest = document.querySelector("#rest");
+const o = document.querySelector('#o');
+const xx = document.querySelector('#x');
+const egale = document.querySelector('#equal');
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
 console.log(borderses)
 let marke = "circle";
@@ -90,12 +93,17 @@ const container = () => {
                         infoTic.textContent = `Le joueur ${marke} a gagné !`;
                         if (marke == "circle") {
                             circle++
+                            o.textContent = circle;
                         } else {
                             cross++
+                            xx.textContent = cross;
+                            console.log(x);
                         }
                         gameOver = true;
                     } else if (equal == 400) {
                         infoTic.textContent = `égalité`;
+                        equal++
+                        egale.textContent = equal;
                     } else {
                         marke = marke === "circle" ? "cross" : "circle";
                         infoTic.textContent = `C'est maintenant au tour de ${marke}`;
@@ -120,5 +128,7 @@ rest.addEventListener("click", () => {
     gameOver = false;
     marke = "circle";
 });
+
+
 container();
 // console.log(borderses)
