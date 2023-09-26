@@ -9,31 +9,32 @@
 </head>
 
 <body>
-    <menu>
+    <menu id="principal">
         <div class="welcome">
 
             <div class="glass">
                 <div class="possition">
                     <h4>Game Tic Tac Teo</h4>
-                        <div class="xo">
-                            <label for="name" class="blanch">Player O</label>
-                            <input type="text" id="playerO">
-                        </div>
+                    <div class="xo">
+                        <label for="name" class="blanch">Player O</label>
+                        <input type="text" id="playerO">
+                    </div>
                     <div class="xo">
                         <label for="name" class="blanch">Player X</label>
-                        <input type="text"id="playerX">
+                        <input type="text" id="playerX">
                     </div>
+                    <p class="error"></p>
                     <button class="button-85" role="button">start</button>
                 </div>
             </div>
-        </div>      
+        </div>
     </menu>
 
-    <main class="dispa">
+    <main id="lock" class="dispa">
         <p id="infoTic"></p>
         <div class="scores">
             <div class="o">
-                <p>Joure (O)</p>
+                <p class="joureO">Joure (O)</p>
                 <p id="o">0</p>
             </div>
             <div class="equal">
@@ -41,15 +42,15 @@
                 <p id="equal">0</p>
             </div>
             <div class="x">
-                <p>Joure (x)</p>
+                <p class="joureX">Joure (x)</p>
                 <p id="x">0</p>
             </div>
         </div>
     </main>
     <div class="dispa" id="gameTic">
     </div>
-    <footer class="dispa"><button id="rest">reset</button></footer>
-   
+    <footer id="resetBtn"><button id="rest">reset</button></footer>
+
 
     <script src="../script/script.js"></script>
 </body>

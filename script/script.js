@@ -4,8 +4,15 @@ const rest = document.querySelector("#rest");
 const o = document.querySelector('#o');
 const xx = document.querySelector('#x');
 const egale = document.querySelector('#equal');
-const player0 =document.querySelector('#playerO');
-const playerX =document.querySelector('#playerX');
+const playerO = document.querySelector('#playerO');
+const playerX = document.querySelector('#playerX');
+const start = document.querySelector('.button-85');
+const errorr = document.querySelector('.error');
+const principal = document.querySelector("#principal");
+const lock = document.querySelector("#lock");
+const joureO = document.querySelector(".joureO")
+const joureX = document.querySelector(".joureX")
+const resetBtn = document.querySelector('#resetBtn');
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
 console.log(borderses)
 let marke = "circle";
@@ -133,4 +140,21 @@ rest.addEventListener("click", () => {
 
 
 container();
-// console.log(borderses)
+const pass = function() {
+    if (playerO.value.trim() === "" || playerX.value.trim() === "") {
+        errorr.textContent = "Veuillez remplir le champ "
+    } else {
+        principal.classList.add("dispa");
+        lock.classList.remove("dispa");
+        // lock.classList.add("afficher");
+        containerTic.classList.remove("dispa");
+        resetBtn.classList.remove("dispo");
+        resetBtn.classList.add("afficher");
+        // containerTic.classList.add('afficher');
+        joureO.textContent = playerO.value;
+        joureX.textContent = playerX.value;
+    }
+}
+
+start.addEventListener("click", pass);
+console.log(resetBtn)
