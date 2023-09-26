@@ -1,0 +1,253 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    background-image: url(../image/wallpaper2you_483312.jpg);
+    /* background: no-repeat; */
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+#gameTic {
+    display: flex;
+    justify-content: center;
+    height: 83vh;
+    align-items: center;
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: repeat(20, auto);
+    /* border: solid 1px black; */
+}
+
+.square {
+    height: 25.5px;
+    width: 25px;
+    /* background-color: #000000;  */
+    border: 1.5px solid rgb(255, 255, 255);
+}
+
+.circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 3px solid rgb(76, 251, 84);
+    box-sizing: border-box;
+}
+
+.cross {
+    width: 22px;
+    height: 30px;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.cross::before,
+.cross::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(246, 73, 73);
+}
+
+.cross::before {
+    left: 48%;
+    width: 25%;
+    margin-left: -11%;
+    height: 90%;
+}
+
+.cross::after {
+    top: 50%;
+    height: 20%;
+    margin-top: -15%;
+    width: 100%;
+}
+
+#infoTic {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    height: 11vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+#rest {
+    height: 60%;
+    width: 5%;
+    padding: auto;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+}
+
+.o {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.equal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+.dispa{
+    display: none !important;
+}
+.afficher{
+    display: block;
+}
+menu{
+    height: 100vh;
+}
+.welcome{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.blanch{
+    color: aliceblue;
+}
+.xo{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    width: 60%;
+    justify-content: center;
+    height: 100%;
+}
+
+input {
+    height: 30px;
+    border-radius: 10px;
+}
+
+.button-85 {
+    margin-top: 15px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.glass{
+
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.14);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.8px);
+-webkit-backdrop-filter: blur(3.8px);
+border: 1px solid rgba(255, 255, 255, 0.29);
+width: 40%;
+height: 40%;
+padding: 10px;
+}
+.possition{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: 80%;
+    margin-top: 20px;
+   
+}
+h4{
+    color: blanchedalmond;
+}

@@ -4,6 +4,8 @@ const rest = document.querySelector("#rest");
 const o = document.querySelector('#o');
 const xx = document.querySelector('#x');
 const egale = document.querySelector('#equal');
+const player0 =document.querySelector('#playerO');
+const playerX =document.querySelector('#playerX');
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
 console.log(borderses)
 let marke = "circle";
