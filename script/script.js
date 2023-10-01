@@ -102,11 +102,15 @@ const container = () => {
                         infoTic.textContent = `Le joueur ${marke} a gagné !`;
                         if (marke == "circle") {
                             circle++
+                            const userOarray = [joureO, circle]
+                            localStorage.setItem('user', JSON.stringify(userOarray));
                             o.textContent = circle;
                         } else {
                             cross++
                             xx.textContent = cross;
-                            console.log(x);
+                            const userXarray = [joureX, cross]
+                            localStorage.setItem('user', JSON.stringify(userXarray));
+                            // console.log(x);
                         }
                         gameOver = true;
                     } else if (equal == 400) {
