@@ -89,10 +89,10 @@ main {
 }
 
 #rest {
-    height: 60%;
+    /* height: 60%;
     width: 5%;
     padding: auto;
-    margin-top: 5px;
+    margin-top: 5px; */
 }
 
 .scores {
@@ -163,8 +163,9 @@ input {
     border-radius: 10px;
 }
 
-.button-85 {
-    margin-top: 15px;
+.button-85,
+#rest {
+    margin-top: 10px;
     padding: 0.6em 2em;
     border: none;
     outline: none;
@@ -179,7 +180,8 @@ input {
     touch-action: manipulation;
 }
 
-.button-85:before {
+.button-85:before,
+#rest:before {
     content: "";
     background: linear-gradient( 45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
     position: absolute;
@@ -208,7 +210,20 @@ input {
     }
 }
 
-.button-85:after {
+@keyframes glowing-rest {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.button-85:after,
+#rest:after {
     z-index: -1;
     content: "";
     position: absolute;
