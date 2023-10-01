@@ -1,3 +1,4 @@
+// import JSConfetti from 'js-confetti'
 const containerTic = document.querySelector("#gameTic");
 const infoTic = document.querySelector("#infoTic");
 const rest = document.querySelector("#rest");
@@ -14,29 +15,25 @@ const joureO = document.querySelector(".joureO")
 const joureX = document.querySelector(".joureX")
 const resetBtn = document.querySelector('#resetBtn');
 const borderses = Array(20).fill(null).map(() => Array(20).fill(null));
-console.log(borderses)
 let marke = "circle";
 let equal = 0;
 let circle = 0;
 let cross = 0;
 let gameOver = false;
-// arr=[];
+
 function chickenDinner(marke) {
     //  horizantal
     for (let i = 0; i < 20; i++) {
         let count = 0;
         for (let j = 0; j < 20; j++) {
             if (borderses[i][j] === marke) {
-                // arr.push([i,j]);
                 count++
-                // console.log(arr)
                 if (count === 5) return true;
             } else {
                 count = 0;
             }
         }
     }
-
     //virticale
     for (let i = 0; i < 20; i++) {
         let count = 0;
@@ -82,15 +79,14 @@ function chickenDinner(marke) {
     }
     return false
 }
+const jsConfetti = new JSConfetti();
 const container = () => {
     let count = 1;
     borderses.forEach((borders, x) => {
         borders.forEach((border, y) => {
             const cellElement = document.createElement("div");
             cellElement.classList.add("square");
-            // cellElement.id = count;
             containerTic.appendChild(cellElement);
-            // count++;
             cellElement.addEventListener("click", function(e) {
                 if (!gameOver && !borderses[x][y] && !e.target.querySelector(".circle") && !e.target.querySelector(".cross")) {
                     const displayMark = document.createElement("div");
@@ -102,17 +98,17 @@ const container = () => {
                         infoTic.textContent = `Le joueur ${marke} a gagné !`;
                         if (marke == "circle") {
                             circle++
-                            const userOarray = [joureO, circle]
+                            const userOarray = [playerO.value, circle, playerX.value, cross]
                             localStorage.setItem('user', JSON.stringify(userOarray));
                             o.textContent = circle;
                         } else {
                             cross++
                             xx.textContent = cross;
-                            const userXarray = [joureX, cross]
+                            const userXarray = [playerO.value, circle, playerX.value, cross]
                             localStorage.setItem('user', JSON.stringify(userXarray));
-                            // console.log(x);
                         }
                         gameOver = true;
+                        jsConfetti.addConfetti();
                     } else if (equal == 400) {
                         infoTic.textContent = `égalité`;
                         equal++
@@ -142,7 +138,6 @@ rest.addEventListener("click", () => {
     marke = "circle";
 });
 
-
 container();
 const pass = function() {
     if (playerO.value.trim() === "" || playerX.value.trim() === "") {
@@ -150,15 +145,11 @@ const pass = function() {
     } else {
         principal.classList.add("dispa");
         lock.classList.remove("dispa");
-        // lock.classList.add("afficher");
         containerTic.classList.remove("dispa");
         resetBtn.classList.remove("dispo");
         resetBtn.classList.add("afficher");
-        // containerTic.classList.add('afficher');
         joureO.textContent = playerO.value;
         joureX.textContent = playerX.value;
     }
 }
-
 start.addEventListener("click", pass);
-console.log(resetBtn)
