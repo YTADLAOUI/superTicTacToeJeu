@@ -80,6 +80,10 @@ function chickenDinner(marke) {
     return false
 }
 const jsConfetti = new JSConfetti();
+
+function function1(name) {
+    swal("le joueur qui gagne c'est " + name[0]);
+}
 const container = () => {
     let count = 1;
     borderses.forEach((borders, x) => {
@@ -98,17 +102,19 @@ const container = () => {
                         infoTic.textContent = `Le joueur ${marke} a gagné !`;
                         if (marke == "circle") {
                             circle++
-                            const userOarray = [playerO.value, circle, playerX.value, cross]
-                            localStorage.setItem('user', JSON.stringify(userOarray));
                             o.textContent = circle;
+                            const userArray = [playerO.value, circle];
+                            localStorage.setItem('user', JSON.stringify(userArray));
                         } else {
                             cross++
                             xx.textContent = cross;
-                            const userXarray = [playerO.value, circle, playerX.value, cross]
-                            localStorage.setItem('user', JSON.stringify(userXarray));
+                            const userArray = [playerX.value, cross];
+                            localStorage.setItem('user', JSON.stringify(userArray));
                         }
+                        let store = JSON.parse(localStorage.getItem('user'));
                         gameOver = true;
                         jsConfetti.addConfetti();
+                        function1(store);
                     } else if (equal == 400) {
                         infoTic.textContent = `égalité`;
                         equal++
